@@ -10,9 +10,9 @@ export async function OPTIONS() {
   return new NextResponse(null, {
     status: 200,
     headers: {
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'POST, OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "POST, OPTIONS",
+      "Access-Control-Allow-Headers": "Content-Type, Authorization",
     },
   });
 }
@@ -25,10 +25,10 @@ export async function POST() {
       body: {
         items: [
           {
-              title: "Inscrição",
-              quantity: 1,
-              unit_price: 1,
-              id: "acampamento"
+            title: "Inscrição",
+            quantity: 1,
+            unit_price: 1,
+            id: "acampamento",
           },
         ],
         back_urls: {
@@ -37,6 +37,7 @@ export async function POST() {
           pending: "https://d1ministry.framer.website/eventos/overflow",
         },
         auto_return: "approved",
+        notification_url: "https://overflow-api.vercel.app/api/webhook",
       },
     });
 
@@ -46,9 +47,9 @@ export async function POST() {
       {
         status: 200,
         headers: {
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Methods': 'POST, OPTIONS',
-          'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "POST, OPTIONS",
+          "Access-Control-Allow-Headers": "Content-Type, Authorization",
         },
       }
     );
@@ -59,9 +60,9 @@ export async function POST() {
       {
         status: 500,
         headers: {
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Methods': 'POST, OPTIONS',
-          'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "POST, OPTIONS",
+          "Access-Control-Allow-Headers": "Content-Type, Authorization",
         },
       }
     );
