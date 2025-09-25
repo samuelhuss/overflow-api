@@ -36,8 +36,7 @@ export async function POST() {
           failure: "https://d1ministry.framer.website/eventos/overflow",
           pending: "https://d1ministry.framer.website/eventos/overflow",
         },
-        auto_return: "approved",
-        notification_url: "https://overflow-api.vercel.app/api/webhook",
+        auto_return: "approved"
       },
     });
 
