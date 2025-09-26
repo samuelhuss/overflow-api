@@ -36,7 +36,9 @@ export async function POST() {
           failure: "https://d1ministry.framer.website/eventos/overflow",
           pending: "https://d1ministry.framer.website/eventos/overflow",
         },
-        auto_return: "approved"
+        auto_return: "approved",
+        payment_methods: {
+            installments: 5
       },
     });
 
