@@ -94,7 +94,6 @@ export async function POST(request: NextRequest) {
               "Valor": `R$ ${dadosParaSalvar.amount}`,
               "Status": dadosParaSalvar.status,
               "Data Aprovação": dadosParaSalvar.date_approved,
-              "Referência Externa": dadosParaSalvar.external_reference,
               "Tipo Pagamento": dadosParaSalvar.payment_type,
               "Parcelas": dadosParaSalvar.installments,
               "Data Criação": dadosParaSalvar.created_at,
