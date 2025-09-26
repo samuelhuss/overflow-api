@@ -40,6 +40,7 @@ export async function POST() {
         payment_methods: {
             installments: 5
       },
+    }
     });
 
     // Adicionar headers CORS na resposta
