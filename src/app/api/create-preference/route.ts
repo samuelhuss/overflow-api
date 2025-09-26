@@ -32,8 +32,8 @@ export async function POST() {
           },
         ],
         back_urls: {
-          success: "https://d1ministry.framer.website/eventos/overflow",
-          failure: "https://d1ministry.framer.website/eventos/overflow",
+          success: "https://d1ministry.framer.website/validate",
+          failure: "https://d1ministry.framer.website/eventos/inscricoes",
           pending: "https://d1ministry.framer.website/eventos/overflow",
         },
         auto_return: "approved",

@@ -49,7 +49,6 @@ export async function POST(request: NextRequest) {
               amount: paymentData.transaction_amount,
               status: paymentData.status,
               date_approved: paymentData.date_approved,
-              external_reference: paymentData.external_reference,
               payment_type: paymentData.payment_type_id,
               installments: paymentData.installments,
               created_at: new Date().toISOString(),
