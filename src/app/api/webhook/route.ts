@@ -1,4 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
+import { MercadoPagoConfig, Payment } from "mercadopago";
+
+const client = new MercadoPagoConfig({
+  accessToken: process.env.MP_ACCESS_TOKEN as string,
+});
 
 export async function OPTIONS() {
   return new NextResponse(null, {
@@ -21,20 +26,42 @@ export async function POST(request: NextRequest) {
     if (body.type === "payment") {
       const paymentId = body.data.id;
       
-      // Aqui você pode:
-      // 1. Buscar detalhes do pagamento na API do MercadoPago
-      // 2. Salvar no banco de dados
-      // 3. Enviar email de confirmação
-      // 4. Atualizar status da inscrição
+      // Confirmar o pagamento usando a API do MercadoPago
+      const payment = new Payment(client);
       
-      console.log(`Pagamento ${paymentId} processado`);
-      
-      // Por enquanto, só loggar os dados
-      console.log("Dados do pagamento:", {
-        id: paymentId,
-        status: body.action,
-        timestamp: new Date().toISOString()
-      });
+      try {
+        const paymentData = await payment.get({
+          id: paymentId,
+        });
+        
+        
+        // Verificar status do pagamento
+        if (paymentData.status === 'approved') {
+          console.log(`✅ Pagamento ${paymentId} APROVADO`);
+          console.log("Detalhes:", {
+            id: paymentData.id,
+            status: paymentData.status,
+            amount: paymentData.transaction_amount,
+            email: paymentData.payer?.email,
+            external_reference: paymentData.external_reference,
+            date_approved: paymentData.date_approved,
+          });
+          
+          // Aqui você pode:
+          // 1. Salvar no banco de dados
+          // 2. Enviar email de confirmação
+          // 3. Atualizar status da inscrição
+          // 4. Integrar com Google Sheets
+          
+        } else if (paymentData.status === 'rejected') {
+          console.log(`❌ Pagamento ${paymentId} REJEITADO`);
+        } else if (paymentData.status === 'pending') {
+          console.log(`⏳ Pagamento ${paymentId} PENDENTE`);
+        }
+        
+      } catch (paymentError) {
+        console.error("Erro ao buscar dados do pagamento:", paymentError);
+      }
     }
     
     // Sempre retorne 200 para confirmar recebimento
