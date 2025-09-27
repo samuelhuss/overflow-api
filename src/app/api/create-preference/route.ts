@@ -27,7 +27,7 @@ export async function POST() {
           {
             title: "Inscrição - Overflow 2026",
             quantity: 1,
-            unit_price: 1,
+            unit_price: 750,
             id: "acampamento",
           },
         ],
