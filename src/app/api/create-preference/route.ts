@@ -27,7 +27,7 @@ export async function POST() {
           {
             title: "Inscrição - Overflow 2026",
             quantity: 1,
-            unit_price: 750,
+            unit_price: 600,
             id: "acampamento",
           },
         ],
@@ -38,7 +38,7 @@ export async function POST() {
         },
         auto_return: "approved",
         payment_methods: {
-            installments: 5
+            installments: 12
       },
     }
     });
